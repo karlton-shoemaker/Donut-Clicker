@@ -8,7 +8,7 @@ const updateCount = (totalDisplay, dM) => {
 
 const makeIncreaseButton = (buttonToClick, totalDisplay, dM) => {
     buttonToClick.addEventListener('click', () => {
-        dM.addOne();
+        dM.addDonuts();
         updateCount(totalDisplay, dM);
     });
 }

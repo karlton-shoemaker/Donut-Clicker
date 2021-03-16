@@ -13,4 +13,9 @@ function IncreaseDonutCountByOne(){
     result.innerText = donutCount;
 }
 
+const clicker = new DonutMaker();
+let result2 = document.getElementById('count2');
+result2.innerText = clicker.getCount();
+
+
 

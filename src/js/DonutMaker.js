@@ -9,7 +9,7 @@ class DonutMaker{
     }
 
     addOne(){
-        this.count += 1;
+        this.count += this.incrementor;
     }
 }
 

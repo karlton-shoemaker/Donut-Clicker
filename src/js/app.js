@@ -1,17 +1,22 @@
-const clicker = new DonutMaker();
-const clickDisplay = document.querySelector('.count');
-const mainClickButton = document.querySelector('.btn');
+const donutMaker = new DonutMaker();
+const displayCount = document.querySelector('.count');
+const generateDonut = document.querySelector('.btn');
 
-const updateCount = (clickDisplay, clicker) => {
-    clickDisplay.innerText = clicker.getCount();
+const updateCount = (totalDisplay, dM) => {
+    totalDisplay.innerText = dM.getCount();
 }
 
-const makeIncreaseButton = (mainClicker, clickDisp, clicker) => {
-    mainClicker.addEventListener('click', () => {
-        clicker.addOne();
-        updateCount(clickDisp, clicker);
+const makeIncreaseButton = (buttonToClick, totalDisplay, dM) => {
+    buttonToClick.addEventListener('click', () => {
+        dM.addOne();
+        updateCount(totalDisplay, dM);
     });
 }
 
-makeIncreaseButton(mainClickButton, clickDisplay, clicker);
+makeIncreaseButton(generateDonut, displayCount, donutMaker);
 
+const multiplier = (dM, numOfMultipliers) => {
+    dM.incrementor = Math.pow(1.2, numOfMultipliers);
+}
+
+//multiplier(donutMaker, 4);

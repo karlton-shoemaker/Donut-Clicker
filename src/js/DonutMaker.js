@@ -7,5 +7,9 @@ class DonutMaker{
     getCount(){
         return this.count;
     }
+
+    addOne(){
+        this.count += 1;
+    }
 }
 

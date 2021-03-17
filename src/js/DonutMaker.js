@@ -28,9 +28,14 @@ class DonutMaker{
     }
 
     addMultiplier(){
+        if(this.count < 10){
+
+        }
+        else{
         this.multiplier++;
         this.incrementor = Math.pow(1.2, this.multiplier);
         this.count -= 10;
+        }
     }
 }
 

@@ -29,6 +29,7 @@ class DonutMaker{
 
     addMultiplier(){
         this.multiplier++;
+        this.incrementor = Math.pow(1.2, this.multiplier);
         this.count -= 10;
     }
 }

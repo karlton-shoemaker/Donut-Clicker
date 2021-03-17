@@ -3,13 +3,13 @@ const displayCount = document.querySelector('.count');
 const generateDonut = document.querySelector('.donutBtn');
 const displayAutoClicker = document.querySelector('.auto');
 const displayMultiplier = document.querySelector('.multiplier');
+const generateMultiplier = document.querySelector('.multiBtn');
 
 const updateCount = (totalDisplay, dM) => {
     totalDisplay.innerText = dM.getCount();
 }
 
 const updateAuto = (displayAutoClicker, dM) => {
-    console.log("this fired");
     displayAutoClicker.innerText = dM.getAutoClicker();
 }
 
@@ -17,21 +17,28 @@ const updateMultiplier = (displayMultiplier, dM) => {
     displayMultiplier.innerText = dM.getMultiplier();
 }
 
-const makeIncreaseButton = (buttonToClick, totalDisplay, dM) => {
-    buttonToClick.addEventListener('click', () => {
+const makeIncreaseButton = (generateDonut, displayCount, dM) => {
+    generateDonut.addEventListener('click', () => {
         dM.addDonuts();
-        updateCount(totalDisplay, dM);
+        updateCount(displayCount, dM);
     });
 }
 
 // To implement:
-//const buyMultiplier = () => {}
+const makeMultiplierButton = (generateMultiplier, displayMultiplier, displayCount, dM) => {
+    generateMultiplier.addEventListener('click', () => {
+        dM.addMultiplier();
+        updateMultiplier(displayMultiplier, dM);
+        updateCount(displayCount, dM);
+    });
+}
 
 updateCount(displayCount, donutMaker);
 updateAuto(displayAutoClicker, donutMaker);
 makeIncreaseButton(generateDonut, displayCount, donutMaker);
-donutMaker.addMultiplier();
-donutMaker.addMultiplier();
+makeMultiplierButton(generateMultiplier, displayMultiplier, displayCount, donutMaker);
+//donutMaker.addMultiplier();
+//donutMaker.addMultiplier();
 updateMultiplier(displayMultiplier, donutMaker);
 
 // const multiplier = (dM, numOfMultipliers) => {

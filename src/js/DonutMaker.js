@@ -3,7 +3,7 @@ class DonutMaker{
         this.count = 0;
         this.incrementor = 1;
         this.autoClicker = 0;
-        this.autoClickerPrice = 100;
+        this.autoClickerPrice = 5;
         this.multiplier = 0;
         this.multiplierPrice = 10;
     }
@@ -24,9 +24,11 @@ class DonutMaker{
         return this.autoClicker;
     }
 
+    
+
     addAutoClicker(){
         this.autoClicker++;
-        this.count -= 100;
+        this.count -= this.autoClickerPrice;
     }
 
     getMultiplier(){
@@ -46,7 +48,11 @@ class DonutMaker{
     }
 
     getMultiplierPrice(){
-        return this.multiplierPrice;
+        return this.multiplierPrice.toFixed();
+    }
+
+    getAutoClickerPrice(){
+        return this.autoClickerPrice;
     }
 }
 

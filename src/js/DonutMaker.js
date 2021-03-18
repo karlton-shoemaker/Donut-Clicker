@@ -16,6 +16,10 @@ class DonutMaker{
         this.count += this.incrementor;
     }
 
+    getIncrementor(){
+        return this.incrementor;
+    }
+
     getAutoClicker(){
         return this.autoClicker;
     }

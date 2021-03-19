@@ -52,10 +52,12 @@ const makeMultiplierButton = (generateMultiplier, displayMultiplier, displayCoun
 
 // const autoClick = (dM) => {
 //     self.setInterval(dM.addDonuts, 1000) * dM.autoClicker;
-//}
+// }
 
-//donutMaker.addAutoClicker();
-//autoClick();
+// donutMaker.addAutoClicker();
+// autoClick(donutMaker);
+
+
 
 updateCount(displayCount, donutMaker);
 updateAuto(displayAutoClicker, donutMaker);
@@ -65,4 +67,7 @@ updateMultiplier(displayMultiplier, donutMaker);
 updateIncrementor(displayIncrementor, donutMaker);
 updateMultiPrice(displayMultiPrice, donutMaker);
 updateAutoPrice(displayAutoPrice, donutMaker);
-let interval = setInterval(updateCount(displayCount, donutMaker), 1000);
+
+const refresh = updateCount(displayCount, donutMaker);
+setInterval(donutMaker.addDonuts(), 1000);
+setInterval(refresh, 1000);

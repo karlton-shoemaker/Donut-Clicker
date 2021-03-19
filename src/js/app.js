@@ -7,7 +7,7 @@ const generateMultiplier = document.querySelector('.multiBtn');
 const displayIncrementor = document.querySelector('.incrementor');
 const displayMultiPrice = document.querySelector('.multiPrice');
 const displayAutoPrice = document.querySelector('.autoPrice');
-const generateAutoClicker = document.querySelector('autoBtn');
+const generateAutoClicker = document.querySelector('.autoBtn');
 
 const updateCount = (totalDisplay, dM) => {
     totalDisplay.innerText = dM.getCount().toFixed();
@@ -50,14 +50,18 @@ const makeMultiplierButton = (generateMultiplier, displayMultiplier, displayCoun
     });
 }
 
-// const autoClick = (dM) => {
-//     self.setInterval(dM.addDonuts, 1000) * dM.autoClicker;
-// }
+const makeAutoClickerButton = (generateAutoClicker, displayCount, dM) => {
+    generateAutoClicker.addEventListener('click', () => {
+        let autoDonuts = () => {
+            dM.addDonuts();
+            console.log(dM.getCount());
+            updateCount(displayCount, dM);
+        }
+        setInterval(autoDonuts, 1000);
+    });
+}
 
-// donutMaker.addAutoClicker();
-// autoClick(donutMaker);
-
-
+console.log(generateAutoClicker);
 
 updateCount(displayCount, donutMaker);
 updateAuto(displayAutoClicker, donutMaker);
@@ -67,19 +71,12 @@ updateMultiplier(displayMultiplier, donutMaker);
 updateIncrementor(displayIncrementor, donutMaker);
 updateMultiPrice(displayMultiPrice, donutMaker);
 updateAutoPrice(displayAutoPrice, donutMaker);
+makeAutoClickerButton(generateAutoClicker, displayCount, donutMaker);
 
-let refresh = updateCount(displayCount, donutMaker);
+//const autoClick = setInterval(autoDonuts, 1000);
 let testVariable = () => {
     console.log('this ran')
 }
 const test = setInterval(testVariable, 1000);
-
-let autoDonuts = () => {
-    donutMaker.addDonuts();
-    console.log(donutMaker.getCount());
-    updateCount(displayCount, donutMaker);
-}
-//const autoClick = setInterval(autoDonuts, 1000);
-setInterval(autoDonuts, 1000);
-setInterval(autoDonuts, 1000);
+let refresh = updateCount(displayCount, donutMaker);
 setInterval(refresh, 1000);

@@ -68,6 +68,18 @@ updateIncrementor(displayIncrementor, donutMaker);
 updateMultiPrice(displayMultiPrice, donutMaker);
 updateAutoPrice(displayAutoPrice, donutMaker);
 
-const refresh = updateCount(displayCount, donutMaker);
-setInterval(donutMaker.addDonuts(), 1000);
+let refresh = updateCount(displayCount, donutMaker);
+let testVariable = () => {
+    console.log('this ran')
+}
+const test = setInterval(testVariable, 1000);
+
+let autoDonuts = () => {
+    donutMaker.addDonuts();
+    console.log(donutMaker.getCount());
+    updateCount(displayCount, donutMaker);
+}
+//const autoClick = setInterval(autoDonuts, 1000);
+setInterval(autoDonuts, 1000);
+setInterval(autoDonuts, 1000);
 setInterval(refresh, 1000);

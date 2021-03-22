@@ -50,14 +50,22 @@ const makeMultiplierButton = (generateMultiplier, displayMultiplier, displayCoun
     });
 }
 
-const makeAutoClickerButton = (generateAutoClicker, displayCount, dM) => {
+const makeAutoClickerButton = (generateAutoClicker, displayAutoClicker, displayAutoPrice, displayCount, dM) => {
     generateAutoClicker.addEventListener('click', () => {
-        let autoDonuts = () => {
-            dM.addDonuts();
-            console.log(dM.getCount());
-            updateCount(displayCount, dM);
+        if(dM.count < dM.autoClickerPrice){
+
         }
-        setInterval(autoDonuts, 1000);
+        else{
+            let autoDonuts = () => {
+                dM.addDonuts();
+                console.log(dM.getAutoClickerPrice());
+                updateCount(displayCount, dM);
+            }
+            setInterval(autoDonuts, 1000);
+            dM.addAutoClicker();
+            updateAuto(displayAutoClicker, dM);
+            updateAutoPrice(displayAutoPrice, dM);
+        }
     });
 }
 
@@ -71,7 +79,7 @@ updateMultiplier(displayMultiplier, donutMaker);
 updateIncrementor(displayIncrementor, donutMaker);
 updateMultiPrice(displayMultiPrice, donutMaker);
 updateAutoPrice(displayAutoPrice, donutMaker);
-makeAutoClickerButton(generateAutoClicker, displayCount, donutMaker);
+makeAutoClickerButton(generateAutoClicker, displayAutoClicker, displayAutoPrice, displayCount, donutMaker);
 
 //const autoClick = setInterval(autoDonuts, 1000);
 let testVariable = () => {

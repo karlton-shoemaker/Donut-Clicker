@@ -9,6 +9,7 @@ const displayMultiPrice = document.querySelector('.multiPrice');
 const displayAutoPrice = document.querySelector('.autoPrice');
 const generateAutoClicker = document.querySelector('.autoBtn');
 const resetBtn = document.getElementById('reset');
+const donutPic = document.getElementById('donutPic');
 
 const updateCount = (displayCount, dM) => {
     displayCount.innerText = dM.getCount().toFixed();
@@ -62,6 +63,13 @@ const makeIncreaseButton = (generateDonut, displayCount, dM) => {
     });
 }
 
+const clickDonutButton = (donutPic, displayCount, dM) => {
+    donutPic.addEventListener('click', () => {
+        dM.addDonuts();
+        updateCount(displayCount, dM);
+    });
+}
+
 const makeMultiplierButton = (generateMultiplier, dM) => {
     generateMultiplier.addEventListener('click', () => {
         dM.addMultiplier();
@@ -80,6 +88,7 @@ const makeAutoClickerButton = (generateAutoClicker, dM) => {
 }
 
 makeIncreaseButton(generateDonut, displayCount, donutMaker);
+clickDonutButton(donutPic, displayCount, donutMaker);
 makeMultiplierButton(generateMultiplier, donutMaker);
 makeAutoClickerButton(generateAutoClicker, donutMaker);
 makeResetButton(resetBtn, donutMaker, displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor);

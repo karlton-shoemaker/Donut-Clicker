@@ -13,9 +13,13 @@ main{
 
 #donutPic{
     display: block;
-    width: 30%;
+    width: 35%;
     margin-left: auto;
     margin-right: auto;
+}
+
+#sassyComment{
+    text-align: center;
 }
 
 #donut{

@@ -8,6 +8,8 @@ const displayIncrementor = document.querySelector('.incrementor');
 const displayMultiPrice = document.querySelector('.multiPrice');
 const displayAutoPrice = document.querySelector('.autoPrice');
 const generateAutoClicker = document.querySelector('.autoBtn');
+const resetBtn = document.getElementById('reset');
+console.log(resetBtn.innerText);
 
 const updateCount = (totalDisplay, dM) => {
     totalDisplay.innerText = dM.getCount().toFixed();
@@ -30,6 +32,15 @@ const updateAutoPrice = (displayAutoPrice, dM) => {
 }
 
 const updateIncrementor = (displayIncrementor, dM) => {
+    displayIncrementor.innerText = dM.getIncrementor().toFixed(2);
+}
+
+const updateAll = (displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor, dM) => {
+    displayCount.innerText = dM.getCount().toFixed();
+    displayAutoClicker.innerText = dM.getAutoClicker();
+    displayAutoPrice.innerText = dM.getAutoClickerPrice();
+    displayMultiplier.innerText = dM.getMultiplier();
+    displayMultiPrice.innerText = dM.getMultiplierPrice();
     displayIncrementor.innerText = dM.getIncrementor().toFixed(2);
 }
 
@@ -69,7 +80,20 @@ const makeAutoClickerButton = (generateAutoClicker, displayAutoClicker, displayA
     });
 }
 
-console.log(generateAutoClicker);
+// let refresh = updateAll(displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor, donutMaker);
+// const makeResetButton = (resetBtn, dM) => {
+//     resetBtn.addEventListener("click", () => {
+//         dM.count = 0;
+//         dM.incrementor = 1;
+//         dM.autoClicker = 0;
+//         dM.multiplier = 0;
+//         dM.autoClickerPrice = 100;
+//         dM.multiplierPrice = 10;
+//         refresh;
+//     });
+// }
+
+//console.log(generateAutoClicker);
 
 updateCount(displayCount, donutMaker);
 updateAuto(displayAutoClicker, donutMaker);
@@ -80,11 +104,8 @@ updateIncrementor(displayIncrementor, donutMaker);
 updateMultiPrice(displayMultiPrice, donutMaker);
 updateAutoPrice(displayAutoPrice, donutMaker);
 makeAutoClickerButton(generateAutoClicker, displayAutoClicker, displayAutoPrice, displayCount, donutMaker);
+//makeResetButton(resetBtn, donutMaker);
 
 //const autoClick = setInterval(autoDonuts, 1000);
-let testVariable = () => {
-    console.log('this ran')
-}
-const test = setInterval(testVariable, 1000);
 let refresh = updateCount(displayCount, donutMaker);
 setInterval(refresh, 1000);

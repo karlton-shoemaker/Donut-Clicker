@@ -29,19 +29,19 @@ class DonutMaker{
         this.autoClicker++;
         this.count -= this.autoClickerPrice;
         this.autoClickerPrice *= 1.1;
-        //this.autoClick();
+        this.autoClick();
     }
 
-    autoClick = () => {
-        this.count += this.incrementor;
-        // let autoDonuts = () => {
-        //     console.log(this.autoClicker);
-        //     this.count = this.count + this.incrementor * this.autoClicker;
-        //     console.log(this.getCount());
-        //     updateCount(displayCount, this);
-        // }
-        // setInterval(this.addDonuts(), 1000);
-        //console.log(this.count);            
+    autoClick(){
+        //this.count += this.incrementor;
+        let autoDonuts = () => {
+            console.log(this.autoClicker);
+            this.count = this.count + this.incrementor * this.autoClicker;
+            console.log(this.count);
+            updateCount(displayCount, this);
+        }
+        setInterval(autoDonuts, 1000);
+        console.log(this.count);            
     }
 
 

@@ -53,7 +53,7 @@ const makeResetButton = (resetBtn, dM, displayCount, displayAutoClicker, display
         dM.multiplier = 0;
         dM.autoClickerPrice = 100;
         dM.multiplierPrice = 10;
-        dM.autoClick();
+        //dM.autoClick();
         console.log('this ran');
         updateAll(displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor, dM);
     });

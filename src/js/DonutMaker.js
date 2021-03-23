@@ -4,7 +4,6 @@ class DonutMaker{
         this.incrementor = 1;
         this.autoClicker = 0;
         this.autoClickerPrice = 100;
-        //this.autoClickerInterval = self.setInterval(this.autoClick, 1000);
         this.multiplier = 0;
         this.multiplierPrice = 10;
     }
@@ -33,17 +32,11 @@ class DonutMaker{
     }
 
     autoClick(){
-        //this.count += this.incrementor;
         let autoDonuts = () => {
-            console.log(this.autoClicker);
             this.count = this.count + this.incrementor * this.autoClicker;
-            console.log(this.count);
-            updateCount(displayCount, this);
         }
         setInterval(autoDonuts, 1000);
-        console.log(this.count);            
     }
-
 
     getMultiplier(){
         return this.multiplier;

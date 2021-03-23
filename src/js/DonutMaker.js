@@ -51,7 +51,7 @@ class DonutMaker{
     }
 
     getAutoClickerPrice(){
-        return this.autoClickerPrice;
+        return this.autoClickerPrice.toFixed();
     }
 }
 

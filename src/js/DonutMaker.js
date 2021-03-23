@@ -36,9 +36,10 @@ class DonutMaker{
             console.log(this.autoClicker);
             this.count = this.count + this.incrementor * this.autoClicker;
             console.log(this.getCount());
-            //updateCount(displayCount, this);
+            updateCount(displayCount, this);
         }
-        setInterval(autoDonuts, 1000);            
+        setInterval(this.addDonuts(), 1000);
+        //console.log(this.count);            
     }
 
 

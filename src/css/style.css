@@ -11,6 +11,24 @@ main{
     border-radius: 15px;
 }
 
+nav{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #666;
+    padding: 1em;
+    border-radius: 15px;
+}
+
+#bakerInfo{
+    display: none;
+    position: absolute;
+    top: 60px;
+    background-color: #999;
+    max-width: 30%;
+    padding: 1em;
+    border-radius: 15px;
+}
+
 #donutPic{
     display: block;
     width: 35%;

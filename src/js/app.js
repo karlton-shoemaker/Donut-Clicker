@@ -10,6 +10,19 @@ const displayAutoPrice = document.querySelector('.autoPrice');
 const generateAutoClicker = document.querySelector('.autoBtn');
 const resetBtn = document.getElementById('reset');
 const donutPic = document.getElementById('donutPic');
+const fredInfo = document.getElementById('bakerLink');
+const bakerInfo = document.getElementById('bakerInfo');
+
+const showBakerDetails = (fredInfo, bakerInfo) => {
+    fredInfo.addEventListener("click", showDetails)
+    bakerInfo.addEventListener("click", hideDetails)
+    function showDetails() {
+        bakerInfo.style.display = "block";
+    }
+    function hideDetails() {
+        bakerInfo.style = "none";
+    }
+}
 
 const darkenAutoButton = (dM, generateAutoClicker) => {
     let currentCount = dM.getCount();
@@ -116,5 +129,6 @@ clickDonutButton(donutPic, displayCount, donutMaker);
 makeMultiplierButton(generateMultiplier, donutMaker);
 makeAutoClickerButton(generateAutoClicker, donutMaker);
 makeResetButton(resetBtn, donutMaker, displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor);
+showBakerDetails(fredInfo, bakerInfo);
 
 setInterval(refreshAll, 100);

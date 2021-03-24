@@ -11,6 +11,28 @@ const generateAutoClicker = document.querySelector('.autoBtn');
 const resetBtn = document.getElementById('reset');
 const donutPic = document.getElementById('donutPic');
 
+const darkenAutoButton = (dM, generateAutoClicker) => {
+    let currentCount = dM.getCount();
+    let currentPrice = dM.getAutoClickerPrice();
+    if(currentPrice <= currentCount){
+        generateAutoClicker.style.backgroundColor = "grey";
+    }
+    else{
+        generateAutoClicker.style.backgroundColor = "black";
+    }
+}
+
+const darkenMultiButton = (dM, generateMultiplier) => {
+    let currentCount = dM.getCount();
+    let currentPrice = dM.getMultiplierPrice();
+    if(currentPrice <= currentCount){
+        generateMultiplier.style.backgroundColor = "grey";
+    }
+    else{
+        generateMultiplier.style.backgroundColor = "black";
+    }
+}
+
 const updateCount = (displayCount, dM) => {
     displayCount.innerText = dM.getCount().toFixed();
 }
@@ -42,6 +64,8 @@ const updateAll = (displayCount, displayAutoClicker, displayAutoPrice, displayMu
     displayMultiplier.innerText = dM.getMultiplier();
     displayMultiPrice.innerText = dM.getMultiplierPrice();
     displayIncrementor.innerText = dM.getIncrementor().toFixed(2);
+    darkenAutoButton(dM, generateAutoClicker);
+    darkenMultiButton(dM, generateMultiplier);
 }
 let refreshAll = () => updateAll(displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor, donutMaker);
 

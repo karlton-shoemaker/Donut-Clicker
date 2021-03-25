@@ -84,3 +84,8 @@ nav{
     margin-right: auto;
     border-radius: 15px;
 }
+
+#resetLink{
+    text-decoration: none;
+    color:black;
+}

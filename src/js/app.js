@@ -12,6 +12,9 @@ const resetBtn = document.getElementById('reset');
 const donutPic = document.getElementById('donutPic');
 const fredInfo = document.getElementById('bakerLink');
 const bakerInfo = document.getElementById('bakerInfo');
+const contactInfo = document.getElementById('contact');
+const closeContact = document.getElementById('close');
+const modal = document.getElementById('modal');
 
 const showBakerDetails = (fredInfo, bakerInfo) => {
     fredInfo.addEventListener("click", showDetails)
@@ -24,14 +27,25 @@ const showBakerDetails = (fredInfo, bakerInfo) => {
     }
 }
 
+const showContactDetails = (contactInfo, closeContact, modal) => {
+    contactInfo.addEventListener("click", showDetails)
+    closeContact.addEventListener("click", hideDetails)
+    function showDetails() {
+        modal.style.display = "block";
+    }
+    function hideDetails() {
+        modal.style = "none";
+    }
+}
+
 const darkenAutoButton = (dM, generateAutoClicker) => {
     let currentCount = dM.getCount();
     let currentPrice = dM.getAutoClickerPrice();
     if(currentPrice <= currentCount){
-        generateAutoClicker.style.backgroundColor = "grey";
+        generateAutoClicker.style.backgroundColor = "#b6ccb6";
     }
     else{
-        generateAutoClicker.style.backgroundColor = "black";
+        generateAutoClicker.style.backgroundColor = "#3e4f3f";
     }
 }
 
@@ -39,10 +53,10 @@ const darkenMultiButton = (dM, generateMultiplier) => {
     let currentCount = dM.getCount();
     let currentPrice = dM.getMultiplierPrice();
     if(currentPrice <= currentCount){
-        generateMultiplier.style.backgroundColor = "grey";
+        generateMultiplier.style.backgroundColor = "#b6ccb6";
     }
     else{
-        generateMultiplier.style.backgroundColor = "black";
+        generateMultiplier.style.backgroundColor = "#3e4f3f";
     }
 }
 
@@ -130,5 +144,6 @@ makeMultiplierButton(generateMultiplier, donutMaker);
 makeAutoClickerButton(generateAutoClicker, donutMaker);
 makeResetButton(resetBtn, donutMaker, displayCount, displayAutoClicker, displayAutoPrice, displayMultiplier, displayMultiPrice, displayIncrementor);
 showBakerDetails(fredInfo, bakerInfo);
+showContactDetails(contactInfo, closeContact, modal);
 
 setInterval(refreshAll, 100);

@@ -28,6 +28,14 @@ class DonutMaker{
         this.autoClicker++;
         this.count -= this.autoClickerPrice;
         this.autoClickerPrice *= 1.1;
+        this.autoClick();
+    }
+
+    autoClick(){
+        let autoDonuts = () => {
+            this.count = this.count + this.incrementor * this.autoClicker;
+        }
+        setInterval(autoDonuts, 1000);
     }
 
     getMultiplier(){
@@ -51,7 +59,7 @@ class DonutMaker{
     }
 
     getAutoClickerPrice(){
-        return this.autoClickerPrice;
+        return this.autoClickerPrice.toFixed();
     }
 }
 
